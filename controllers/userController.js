@@ -4,11 +4,11 @@ const User = require('../models/userModel');
 // Create a new user
 exports.createUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password , phone , address } = req.body;
 
-    const user = new User({ name, email, password });
+    const user = new User({ name, email, password , phone , address });
     await user.save();
-    res.status(201).json({ message: 'User created successfully', user });
+    res.status(201).json({ message: 'Vendor created successfully', user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
