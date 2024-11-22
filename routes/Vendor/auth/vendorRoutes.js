@@ -1,6 +1,6 @@
 // routes/vendorRoutes.js
 const express = require('express');
-const { createvendor, getAllvendors } = require('../controllers/vendorController');
+const { createvendor, getAllvendors } = require('../../../controllers/Vendor/auth/vendorController');
 const router = express.Router();
 
 router.post('/vendorRegister', createvendor); // Create a new vendor

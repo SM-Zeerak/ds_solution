@@ -2,7 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-const vendorRoutes = require('./routes/vendorRoutes');
+const vendorRoutes = require('./routes/Vendor/auth/vendorRoutes');
 
 // Load environment variables
 dotenv.config();

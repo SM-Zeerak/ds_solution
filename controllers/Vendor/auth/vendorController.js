@@ -1,5 +1,5 @@
 // controllers/vendorController.js
-const vendor = require('../models/vendorModel');
+const vendor = require('../../../models/Vendor/Auth/vendorRegisterModel');
 
 // Create a new vendor
 exports.createvendor = async (req, res) => {
