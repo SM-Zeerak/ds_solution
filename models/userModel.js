@@ -6,6 +6,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phone: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -19,5 +27,5 @@ const userSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('Vendor', userSchema);
 module.exports = User;
