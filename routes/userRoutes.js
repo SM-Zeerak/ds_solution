@@ -1,9 +1,9 @@
-// routes/userRoutes.js
+// routes/vendorRoutes.js
 const express = require('express');
-const { createUser, getAllUsers } = require('../controllers/userController');
+const { createvendor, getAllvendors } = require('../controllers/vendorController');
 const router = express.Router();
 
-router.post('/vendorRegister', createUser); // Create a new user
-router.get('/vendorGet', getAllUsers); // Get all users
+router.post('/vendorRegister', createvendor); // Create a new vendor
+router.get('/vendorGet', getAllvendors); // Get all vendors
 
 module.exports = router;

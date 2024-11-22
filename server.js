@@ -2,7 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
+const vendorRoutes = require('./routes/vendorRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // API Routes
-app.use('/api', userRoutes);
+app.use('/api', vendorRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {
