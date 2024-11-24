@@ -28,6 +28,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  adress: {
+    type: String,
+    required: false,
+  },
+  aow: {
+    type: String,
+    required: false,
+  },
   profileImage: {
     type: String,
     required: false,

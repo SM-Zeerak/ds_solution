@@ -4,7 +4,7 @@ const path = require('path');
 exports.updateProfile = async (req, res) => {
   try {
       const { id } = req.params;
-      const { cnic, firstName, lastName, phone, teamId } = req.body;
+      const { cnic, firstName, lastName, phone, teamId , adress , aow } = req.body;
 
       if (!phone) {
           return res.status(400).json({ error: 'Phone number is required' });
@@ -16,6 +16,8 @@ exports.updateProfile = async (req, res) => {
       if (firstName) updates.firstName = firstName;
       if (lastName) updates.lastName = lastName;
       if (phone) updates.phone = phone;
+      if (adress) updates.adress = adress;
+      if (aow) updates.aow = aow;
 
       // Set teamId to 'DZVendors' if not provided
       updates.teamId = teamId || 'DZVendors';
