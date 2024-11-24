@@ -2,17 +2,13 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    required: true,
+    required: false,
   },
-  name: {
+  lastName: {
     type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
@@ -23,10 +19,32 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profileImage: {
+  phone: {
     type: String,
     required: true,
+    unique: true,
   },
+  cnic: {
+    type: String,
+    required: false,
+  },
+  profileImage: {
+    type: String,
+    required: false,
+  },
+  cnicImage: {
+    type: String,
+    required: false,
+  },
+  vendorId: {
+    type: String,
+    required: false,
+  },
+  teamId: {
+    type: String,
+    required: false,
+  }
+  
 }, {
   timestamps: true,
 });
