@@ -1,7 +1,7 @@
-// models/userModel.js
+// models/vendorModel.js
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const vendorSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: false,
@@ -57,5 +57,5 @@ const userSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-const User = mongoose.model('Vendor', userSchema);
-module.exports = User;
+const vendor = mongoose.model('Vendor', vendorSchema);
+module.exports = vendor;

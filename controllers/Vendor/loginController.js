@@ -1,94 +1,56 @@
-// const jwt = require('jsonwebtoken');
-// const bcryptjs = require('bcryptjs');
-// const User = require('.././../models/userModel');
-
-// exports.loginVendor = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
-
-//     // Find the user by email
-//     const user = await User.findOne({ email });
-//     if (!user) {
-//       return res.status(404).json({ message: 'User not found' });
-//     }
-
-//     // Compare passwords
-//     const isPasswordValid = await bcryptjs.compare(password, user.password);
-//     if (!isPasswordValid) {
-//       return res.status(401).json({ message: 'Invalid credentials' });
-//     }
-
-//     // Generate a JWT token
-//     const token = jwt.sign(
-//       { userId: user._id, email: user.email },
-//       process.env.JWT_SECRET, // Ensure this is set
-//       { expiresIn: '1h' }
-//     );
-
-//     res.status(200).json({
-//       message: 'Login successful',
-//       token,
-//       user: { _id: user._id, email: user.email }  // Avoid sending the password
-//     });
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
-
-
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../../models/userModel');
+const vendor = require('../../models/Vendor/vendorModel');
 
 // Utility function to check profile completeness
-const isProfileComplete = (user) => {
+const isProfileComplete = (vendor) => {
   const requiredFields = ['firstName', 'lastName', 'cnic', 'adress', 'profileImage', 'cnicImage'];
-  return requiredFields.every((field) => user[field] && user[field].trim() !== '');
+  return requiredFields.every((field) => vendor[field] && vendor[field].trim() !== '');
 };
 
 exports.loginVendor = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find the user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+    // Find the vendor by email
+    const vendor = await vendor.findOne({ email });
+    if (!vendor) {
+      return res.status(404).json({ message: 'vendor not found' });
     }
 
     // Compare passwords
-    const isPasswordValid = await bcryptjs.compare(password, user.password);
+    const isPasswordValid = await bcryptjs.compare(password, vendor.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     // Check if the profile is complete
-    const completedProfile = isProfileComplete(user);
+    const completedProfile = isProfileComplete(vendor);
 
     // Generate a JWT token
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { vendorId: vendor._id, email: vendor.email },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
-    // Return the full user data along with the token and profile completeness status
+    // Return the full vendor data along with the token and profile completeness status
     res.status(200).json({
       message: 'Login successful',
       token,
-      user: {
-        _id: user._id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        phone: user.phone,
-        cnic: user.cnic,
-        adress: user.adress,
-        aow: user.aow,
-        profileImage: user.profileImage,
-        cnicImage: user.cnicImage,
-        vendorId: user.vendorId,
-        teamId: user.teamId,
+      vendor: {
+        _id: vendor._id,
+        firstName: vendor.firstName,
+        lastName: vendor.lastName,
+        email: vendor.email,
+        phone: vendor.phone,
+        cnic: vendor.cnic,
+        adress: vendor.adress,
+        aow: vendor.aow,
+        profileImage: vendor.profileImage,
+        cnicImage: vendor.cnicImage,
+        vendorId: vendor.vendorId,
+        teamId: vendor.teamId,
         completedProfile // Whether the profile is complete or not
       }
     });
