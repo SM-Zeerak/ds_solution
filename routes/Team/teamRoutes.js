@@ -1,8 +1,8 @@
 const express = require('express');
 const { createTeam, getAllTeams } = require('../../controllers/team/teamController');
-const { updateProfile } = require('../../controllers/team/updateteamController');
+const { updateProfile } = require('../../controllers/team/updateTeamController'); // Double-check paths
 const upload = require('../../services/team/upload');
-const { loginteam } = require('../../controllers/team/loginController');
+const { loginTeam } = require('../../controllers/team/loginController');
 
 const router = express.Router();
 
