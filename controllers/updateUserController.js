@@ -6,9 +6,9 @@ exports.updateProfile = async (req, res) => {
       const { id } = req.params;
       const { cnic, firstName, lastName, phone, teamId , adress , aow } = req.body;
 
-      if (!phone) {
-          return res.status(400).json({ error: 'Phone number is required' });
-      }
+      // if (!phone) {
+      //     return res.status(400).json({ error: 'Phone number is required' });
+      // }
 
       const updates = {};
 

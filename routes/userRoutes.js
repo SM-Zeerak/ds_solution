@@ -2,6 +2,7 @@ const express = require('express');
 const { createUser, getAllUsers} = require('../controllers/userController');
 const { updateProfile } = require('../controllers/updateUserController');
 const upload = require('../services/upload');
+const { loginVendor } = require('../controllers/Vendor/loginController');
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router.put(
     ]),
     updateProfile
 );
+router.post('/vendorsLogin', loginVendor);
 
 
 module.exports = router;
