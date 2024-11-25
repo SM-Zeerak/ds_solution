@@ -1,5 +1,5 @@
 // const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcrypt');
+// const bcryptjs = require('bcryptjs');
 // const User = require('.././../models/userModel');
 
 // exports.loginVendor = async (req, res) => {
@@ -13,7 +13,7 @@
 //     }
 
 //     // Compare passwords
-//     const isPasswordValid = await bcrypt.compare(password, user.password);
+//     const isPasswordValid = await bcryptjs.compare(password, user.password);
 //     if (!isPasswordValid) {
 //       return res.status(401).json({ message: 'Invalid credentials' });
 //     }
@@ -36,7 +36,7 @@
 // };
 
 
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/userModel');
 
@@ -57,7 +57,7 @@ exports.loginVendor = async (req, res) => {
     }
 
     // Compare passwords
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await bcryptjs.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }

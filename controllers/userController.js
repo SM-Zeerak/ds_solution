@@ -1,5 +1,5 @@
 const User = require('../models/userModel');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 // Utility function to check profile completeness
 const isProfileComplete = (user) => {
@@ -12,7 +12,7 @@ exports.createUser = async (req, res) => {
     const { email, password, phone } = req.body;
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     // Create the user with the hashed password
     const user = new User({ email, password: hashedPassword, phone });
