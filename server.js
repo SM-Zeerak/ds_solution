@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const vendorRoutes = require('./routes/Vendor/vendorRoutes');
 const teamRoutes = require('./routes/Team/teamRoutes');
+const productRoutes = require('./routes/Product/productRoutes');
+const categoryRoutes = require('./routes/Category/categoryRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -20,6 +22,8 @@ app.use(express.json());
 // API Routes
 app.use('/api', vendorRoutes);
 app.use('/api', teamRoutes);
+app.use('/api', productRoutes);
+app.use('/api', categoryRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {

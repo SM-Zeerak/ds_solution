@@ -1,4 +1,4 @@
-const Team = require('../../models/team/teamModel');
+const Team = require('../../models/Team/teamModel');
 const bcryptjs = require('bcryptjs');
 
 // Utility function to check profile completeness

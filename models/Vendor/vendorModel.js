@@ -1,5 +1,6 @@
 // models/vendorModel.js
 const mongoose = require('mongoose');
+const Category = require('../../models/Category/categoryModel');
 
 const vendorSchema = new mongoose.Schema({
   firstName: {
@@ -51,8 +52,12 @@ const vendorSchema = new mongoose.Schema({
   teamId: {
     type: String,
     required: false,
-  }
-  
+  },
+  profession: {
+    type: [String], // Array of strings to store profession names
+    required: true
+  },
+
 }, {
   timestamps: true,
 });

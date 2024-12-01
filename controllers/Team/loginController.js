@@ -1,6 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const team = require('../../models/team/teamModel');
+const Team = require('../../models/Team/teamModel');
 
 // Utility function to check profile completeness
 const isProfileComplete = (team) => {
@@ -13,7 +13,7 @@ exports.loginteam = async (req, res) => {
     const { email, password } = req.body;
 
     // Find the team by email
-    const team = await team.findOne({ email });
+    const team = await Team.findOne({ email });
     if (!team) {
       return res.status(404).json({ message: 'team not found' });
     }

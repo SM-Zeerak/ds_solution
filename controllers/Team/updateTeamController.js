@@ -1,4 +1,4 @@
-const Team = require('../../models/team/teamModel'); // Renamed the model variable
+const Team = require('../../models/Team/teamModel'); // Renamed the model variable
 const path = require('path');
 
 exports.updateProfile = async (req, res) => {
