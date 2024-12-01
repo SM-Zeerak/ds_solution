@@ -1,5 +1,5 @@
 const express = require('express');
-const { createTeam, getAllTeams } = require('../../controllers/team/teamController');
+const { createTeam, getAllTeams } = require('../../controllers/Team/teamController');
 const { updateProfile } = require('../../controllers/team/updateTeamController'); 
 const upload = require('../../services/team/upload');
 const { loginteam } = require('../../controllers/team/loginController');
