@@ -1,8 +1,8 @@
 const express = require('express');
 const { createTeam, getAllTeams } = require('../../controllers/Team/teamController');
-const { updateProfile } = require('../../controllers/team/updateTeamController'); 
-const upload = require('../../services/team/upload');
-const { loginteam } = require('../../controllers/team/loginController');
+const { updateProfile } = require('../../controllers/Team/updateTeamController'); 
+const upload = require('../../services/Team/upload');
+const { loginteam } = require('../../controllers/Team/loginController');
 
 const router = express.Router();
 
