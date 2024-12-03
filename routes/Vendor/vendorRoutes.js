@@ -27,13 +27,19 @@ router.get('/getVendors/:teamId', async (req, res) => {
     }
   });
   
+// router.put(
+//     '/profileUpdate/:id',
+//     upload.fields([
+//         { name: 'profileImage', maxCount: 1 },
+//         { name: 'cnicImage', maxCount: 1 }
+//     ]),
+//     updateProfile
+// );
+
 router.put(
-    '/profileUpdate/:id',
-    upload.fields([
-        { name: 'profileImage', maxCount: 1 },
-        { name: 'cnicImage', maxCount: 1 }
-    ]),
-    updateProfile
+  '/profileUpdate/:id',
+  fileUpload, // Use fileUpload middleware here
+  updateProfile
 );
 router.post('/vendorsLogin', loginVendor);
 
