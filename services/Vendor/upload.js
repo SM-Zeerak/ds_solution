@@ -153,7 +153,7 @@ const fs = require('fs');
 const storage = multer.memoryStorage();
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 20 * 1024 * 1024 }, // Limit file size to 20MB
+    limits: { fileSize: 20 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         const ext = path.extname(file.originalname).toLowerCase();
         if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) {
@@ -209,4 +209,4 @@ const fileUpload = (req, res, next) => {
     });
 };
 
-module.exports = { fileUpload };
+module.exports =  fileUpload ;
