@@ -70,25 +70,25 @@
 //     //     }
 //     //     cb(null, true);
 //     // },
-    
+
 //     filename: (req, file, cb) => {
 //         setImmediate(() => {
 //             const cnic = req.body.cnic ? req.body.cnic.replace(/\D/g, '') : null; // Sanitize CNIC
-    
+
 //             if (!cnic) {
 //                 return cb(new Error('CNIC number is required'), null);
 //             }
-    
+
 //             let fileName;
 //             if (file.fieldname === 'profileImage') {
 //                 fileName = 'profile.jpg';
 //             } else if (file.fieldname === 'cnicImage') {
 //                 fileName = 'cnic.jpg';
 //             }
-    
+
 //             // Construct the relative path to save in the database
 //             const relativePath = path.join('uploads', cnic, fileName);
-    
+
 //             cb(null, fileName);
 //         });
 //     }
@@ -115,7 +115,10 @@ const storage = multer.diskStorage({
         }
 
         // Create target directory using CNIC under 'uploads/Vendor'
-        const targetDir = path.join(uploadsDir, cnic);
+        // const targetDir = path.join(uploadsDir, cnic);
+        const targetDir = path.join(uploadsDir, 'cnicImg', cnic);
+        console.log('Saving to:', targetDir);
+
 
         // Ensure the target directory exists
         fs.mkdirSync(targetDir, { recursive: true });
