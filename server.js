@@ -58,7 +58,9 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Serve static files from the "uploads" directory
-app.use('/uploads', express.static(path.join(__dirname, '..', '..', 'uploads',)));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// app.use(express.static(path.join(__dirname, '../public')));
 
 
 // API Routes
@@ -76,3 +78,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+
