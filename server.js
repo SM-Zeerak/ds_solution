@@ -58,7 +58,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Serve static files from the "uploads" directory
-app.use('/uploads', express.static(path.join(__dirname, '..', '..', 'uploads', 'Vendor')));
+app.use('/uploads', express.static(path.join(__dirname, '..', '..', 'uploads',)));
 
 
 // API Routes
