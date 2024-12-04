@@ -41,8 +41,6 @@ router.put(
   fileUpload, // Middleware function directly
   updateProfile // Controller function
 );
-
-
 router.post('/vendorsLogin', loginVendor);
 
 
