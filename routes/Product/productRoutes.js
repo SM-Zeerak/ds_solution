@@ -1,6 +1,7 @@
 const express = require('express');
 const { createProduct, getAllProducts } = require('../../controllers/Product/productController');
 const { updateProduct } = require('../../controllers/Product/updateProductController');
+const { updateIsActive } = require('../../controllers/Product/isActiveController');
 const { fileUpload } = require('../../services/Product/upload');
 
 const router = express.Router();
@@ -17,5 +18,7 @@ router.get('/getProducts', getAllProducts);
 
 // Update an existing product with a new image (if provided)
 router.put('/productProfileUpdate/:id', fileUpload, updateProduct);
+
+router.put('/productIsActiveUpdate/:id', updateIsActive);
 
 module.exports = router;

@@ -14,6 +14,7 @@ const productSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: false,
+    default: 0
   },
   oldPrice: {
     type: Number,
@@ -25,7 +26,7 @@ const productSchema = new mongoose.Schema({
   },
   stock: {
     type: Number,
-    default: 0,
+    default: 1,
   },
   productImage: {
     type: String,
@@ -35,6 +36,16 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  productType: {
+    type: String,
+    enum: ['Price', 'OnVisit'],
+    required: true,
+  },
+
 }, {
   timestamps: true,
 });

@@ -1,28 +1,5 @@
 const Category = require('../../models/Category/categoryModel');
 
-// Controller to create a category
-// exports.createCategory = async (req, res) => {
-//     try {
-//         const { name, subCategories, collections } = req.body;
-
-//         // Create a new category instance
-//         const newCategory = new Category({
-//             name,
-//             subCategories,
-//             collections
-//         });
-
-//         // Save the category
-//         const savedCategory = await newCategory.save();
-
-//         // Respond with the created category
-//         res.status(201).json(savedCategory);
-//     } catch (error) {
-//         console.error('Error creating category:', error);
-//         res.status(400).json({ message: 'Error creating category', error: error.message });
-//     }
-// };
-
 exports.createCategory = async (req, res) => {
     try {
       const { name, subCategories, collections } = req.body;
